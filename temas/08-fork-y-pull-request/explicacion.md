@@ -12,12 +12,12 @@ Un **fork** es una copia de un repositorio en tu propia cuenta de GitHub. Puedes
 
 Es el mecanismo estándar para contribuir a proyectos de otras personas u organizaciones.
 
-```
-Repositorio original          Tu fork
-github.com/otro/proyecto  →  github.com/tu-usuario/proyecto
-        ↑                           |
-        |                           | (pull request)
-        └───────────────────────────┘
+```mermaid
+flowchart LR
+        O["Repositorio original<br/>github.com/otro/proyecto"] -->|Fork| F["Tu fork<br/>github.com/tu-usuario/proyecto"]
+        F -->|git clone| L["Tu máquina<br/>rama de trabajo"]
+        L -->|git push| F
+        F -->|Pull Request| O
 ```
 
 ---
@@ -90,3 +90,56 @@ git remote add upstream https://github.com/otro/nombre-repo.git
 git fetch upstream
 git merge upstream/main
 ```
+
+---
+
+## Ramas divergentes: el bloqueo más común
+
+Uno de los errores más habituales aparece cuando tu rama local y la rama remota han avanzado por separado. Git suele avisar con mensajes como:
+
+```bash
+hint: You have divergent branches and need to specify how to reconcile them.
+```
+
+O también:
+
+```bash
+! [rejected] main -> main (non-fast-forward)
+```
+
+Esto significa que tu rama local no está "por delante" ni "por detrás" sin más: ambas tienen commits distintos.
+
+### Cuándo pasa
+
+- Hiciste commits en local y además hubo cambios nuevos en GitHub
+- Editaste algo desde la web y luego seguiste trabajando en tu máquina
+- Varias personas empujaron cambios sobre la misma rama
+
+### Qué hacer
+
+Primero trae los cambios remotos y luego integra ambos historiales:
+
+```bash
+git pull --rebase
+```
+
+Si prefieres el enfoque más explícito:
+
+```bash
+git fetch origin
+git rebase origin/main
+```
+
+Si hay conflictos, resuélvelos, haz `git add` de los archivos corregidos y sigue con:
+
+```bash
+git rebase --continue
+```
+
+Cuando termine, ya podrás hacer `git push`.
+
+### Regla práctica
+
+Si trabajas tú sola o solo y quieres un historial más limpio, `pull --rebase` suele ser la mejor opción.
+
+Si todavía no entiendes bien rebase, no pasa nada: lo importante es que entiendas el problema. Tu rama local y la remota se separaron, y Git te obliga a decidir cómo volver a unirlas.

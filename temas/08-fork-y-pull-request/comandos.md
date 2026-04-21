@@ -50,6 +50,28 @@ git push origin main
 
 ---
 
+## Resolver ramas divergentes
+
+```bash
+# Traer cambios remotos y reordenar tus commits locales encima
+git pull --rebase
+
+# Forma equivalente, paso a paso
+git fetch origin
+git rebase origin/main
+
+# Si aparece un conflicto durante el rebase
+git add archivo-resuelto.md
+git rebase --continue
+
+# Si quieres cancelar el rebase y volver al estado anterior
+git rebase --abort
+```
+
+Usa esto cuando Git te diga que tu rama local y la remota han divergido o cuando un `push` sea rechazado con `non-fast-forward`.
+
+---
+
 ## El Pull Request se gestiona desde GitHub
 
 Una vez haces push de tu rama, GitHub muestra un botón para abrir el PR. El proceso de revisión, comentarios y merge se hace desde la interfaz web de GitHub.

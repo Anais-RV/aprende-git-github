@@ -17,6 +17,12 @@
 5. **¿Por qué es buena práctica abrir un PR incluso dentro de tu propio equipo?**
    ¿Qué aporta la revisión de código?
 
+6. **¿Qué significa que una rama local y una remota han divergido?**
+   ¿Qué suele haber pasado para llegar a esa situación?
+
+7. **Si Git rechaza un `push` con `non-fast-forward`, qué harías primero?**
+   Explica el razonamiento, no solo el comando.
+
 ---
 
 ## Comprobación práctica
@@ -33,3 +39,4 @@
 - Entiendes que un PR es una propuesta, no un comando de Git
 - Sabes cómo mantener tu fork actualizado con el original
 - Usas ramas descriptivas para cada contribución
+- Sabes reconocer y desbloquear una situación de ramas divergentes

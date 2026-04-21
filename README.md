@@ -58,11 +58,9 @@ Empieza por `explicacion.md`, prueba los comandos, haz el ejercicio y responde e
 
 ## Convención de commits
 
-Este repositorio usa una convención para escribir los mensajes de commit. Puedes consultarla en [CONVENCIONES.md](CONVENCIONES.md).
+Este repositorio usa una convención para escribir los mensajes de commit. Puedes consultarla en [temas/04-commits-bien-escritos/CONVENCIONES.md](temas/04-commits-bien-escritos/CONVENCIONES.md).
 
 Te recomiendo adoptarla también en tu repositorio de práctica. Así el hábito se construye desde el principio, no cuando ya tienes cien commits mal escritos.
-
-Puedes consultarla en [temas/04-commits-bien-escritos/CONVENCIONES.md](temas/04-commits-bien-escritos/CONVENCIONES.md).
 
 ---
 
@@ -71,3 +69,13 @@ Puedes consultarla en [temas/04-commits-bien-escritos/CONVENCIONES.md](temas/04-
 - Git instalado → [git-scm.com](https://git-scm.com)
 - Una cuenta en GitHub → [github.com](https://github.com)
 - Un editor de texto (VS Code funciona muy bien con Git)
+
+---
+
+## Créditos
+
+Este material lo he creado yo, [Anais](https://github.com/Anais-RV), con mucho cariño y varios `git commit --amend` de por medio.
+
+Si encuentras algo que no se entiende, algo que falta o algo que está directamente mal — abre un issue. Los errores bien reportados también son bienvenidos.
+
+Y si llegaste hasta el final del temario: enhorabuena. Ya sabes Git. 🎉

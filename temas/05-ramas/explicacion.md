@@ -19,6 +19,60 @@ Las ramas permiten **trabajar en paralelo** sin afectar al trabajo principal. Ca
 
 ---
 
+## Flujo normal de trabajo en equipo: main + dev + ramas cortas
+
+Cuando trabajas en equipo, un flujo muy habitual y fácil de mantener es:
+
+- `main`: lo estable, lo que está listo para enseñar o desplegar
+- `dev`: rama de integración donde se juntan cambios ya revisados
+- Ramas de trabajo: salen de `dev` para cada tarea concreta (`feat/...`, `fix/...`, `docs/...`)
+
+```mermaid
+gitGraph
+        commit id: "main estable"
+        branch dev
+        checkout dev
+        commit id: "base dev"
+        branch feat/login
+        checkout feat/login
+        commit id: "trabajo 1"
+        commit id: "trabajo 2"
+        checkout dev
+        merge feat/login id: "merge a dev"
+        branch fix/header
+        checkout fix/header
+        commit id: "correccion"
+        checkout dev
+        merge fix/header id: "merge a dev"
+        checkout main
+        merge dev id: "release"
+```
+
+La idea es simple: no tocas `main` directamente para tareas diarias. Trabajas en ramas pequeñas, las integras en `dev` y cuando `dev` está sólida, pasas a `main`.
+
+---
+
+## Por qué crear ramas cuando surge la necesidad (y no todas al inicio)
+
+Crear ramas "por si acaso" desde el principio suele dar más problemas que ventajas.
+
+Problemas típicos de pre-crear muchas ramas:
+
+- Quedan ramas huérfanas que nadie usa
+- Pierdes claridad sobre qué tarea está realmente activa
+- Se desactualizan rápido respecto a `dev`
+- Acabas con merges o rebases innecesarios
+
+Regla práctica de experiencia real:
+
+- Si no hay tarea concreta, no hay rama
+- Una tarea clara = una rama
+- Rama cerrada (merge) = rama eliminada
+
+Esto mantiene el repo limpio y reduce conflictos evitables.
+
+---
+
 ## El flujo habitual con ramas
 
 ```mermaid

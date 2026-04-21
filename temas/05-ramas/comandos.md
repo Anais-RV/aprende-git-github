@@ -21,6 +21,27 @@ git checkout -b nombre-de-la-rama
 
 ---
 
+## Flujo main + dev + rama de tarea
+
+```bash
+# Crear dev una sola vez (desde main)
+git switch main
+git switch -c dev
+git push -u origin dev
+
+# Empezar una tarea nueva desde dev
+git switch dev
+git pull
+git switch -c feat/nombre-de-la-tarea
+
+# Subir la rama de tarea
+git push -u origin feat/nombre-de-la-tarea
+```
+
+Usa este patrón para que las tareas nazcan desde una base actualizada y no desde commits antiguos.
+
+---
+
 ## Gestionar ramas
 
 ```bash

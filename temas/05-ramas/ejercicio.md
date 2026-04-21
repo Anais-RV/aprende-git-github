@@ -89,8 +89,50 @@ Deberías tener al menos tres ramas: `main`, `experimento/nueva-seccion` y `docs
 
 ---
 
+## Paso 8: Simula un flujo real con `dev`
+
+Ahora practica un flujo más cercano al trabajo de equipo:
+
+1. Vuelve a `main` y crea `dev`:
+
+```bash
+git switch main
+git switch -c dev
+```
+
+2. Desde `dev`, crea una rama de tarea:
+
+```bash
+git switch -c feat/nota-flujo-equipo
+```
+
+3. Añade una línea en `notas.md` sobre este flujo y haz commit:
+
+```bash
+git add notas.md
+git commit -m "docs: agregar nota sobre flujo main dev y ramas de tarea"
+```
+
+4. Vuelve a `dev` e integra la rama:
+
+```bash
+git switch dev
+git merge feat/nota-flujo-equipo
+```
+
+5. Comprueba el historial:
+
+```bash
+git log --oneline --graph --all
+```
+
+Si quieres, después puedes integrar `dev` en `main` como harías en una entrega.
+
+---
+
 ## Resultado esperado
 
 - Sabes crear ramas, cambiarte entre ellas y listarlas
 - Entiendes que los cambios en una rama no afectan a las demás
 - Puedes visualizar el historial de ramas con `git log --oneline --graph --all`
+- Sabes aplicar un flujo básico de equipo con `main`, `dev` y ramas de tarea
